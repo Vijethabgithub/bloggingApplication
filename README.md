@@ -1,2 +1,1 @@
-# bloggingApplication
-# bloggingApplication
+## Welcome to Blogging Platform ##
