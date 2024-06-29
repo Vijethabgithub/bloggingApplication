@@ -1,14 +1,21 @@
 package com.backend.application.dto;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class PostDTO {
-	
+
+	private String id;
 	private String title;
 	private String body;
 	private String author;
-	private Timestamp timestamp;
+	private Date timestamp;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -27,10 +34,12 @@ public class PostDTO {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public Timestamp getTimestamp() {
+	public Date getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(Timestamp timestamp) {
+	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
+	
+	
 }

@@ -29,13 +29,31 @@ public class ManagePostServiceImpl implements ManagePostService {
 	public List<PostDTO> getPosts() {
 
 		List<Post> posts = postRepository.findAll();
-		return postMapper.convertEntitytoDTO(posts);
+		return postMapper.convertEntityListtoDTO(posts);
 	}
 
 	@Override
 	public void savePost(PostDTO postDTO) {
 		Post post = postMapper.convertDTOtoEntity(postDTO);
 		postRepository.save(post);
+	}
+
+	@Override
+	public void deletePostById(String postId) {
+		postRepository.deleteById(postId);
+
+	}
+
+	@Override
+	public PostDTO getPostById(String postId) {
+		
+	PostDTO	postDTO = null;
+	Post post = postRepository.findById(postId).orElse(null);
+	if(post!=null) {
+		postDTO = postMapper.convertEntitytoDTO(post);
+	}
+	return postDTO;	
+		
 	}
 
 }

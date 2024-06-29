@@ -28,19 +28,23 @@ public class ManagePostController {
 
 	/**
 	 * Retrive a list of all blog posts.
-	 * @return 
+	 * 
+	 * @return
 	 */
 	@GetMapping("/posts")
 	public List<PostDTO> getPost() {
 
-	 return managePostservice.getPosts();
+		return managePostservice.getPosts();
 	}
 
 	/**
 	 * Retrive a single blog post by its ID.
+	 * 
+	 * @return
 	 */
 	@GetMapping("/posts/{postId}")
-	public void getPostById(@PathVariable("postId") String postId) {
+	public PostDTO getPostById(@PathVariable("postId") String postId) {
+		return managePostservice.getPostById(postId);
 
 	}
 
@@ -50,7 +54,7 @@ public class ManagePostController {
 	@PostMapping("/posts")
 	public void savePost(@RequestBody PostDTO postDTO) {
 
-	managePostservice.savePost(postDTO); 
+		managePostservice.savePost(postDTO);
 	}
 
 	/**
@@ -66,6 +70,7 @@ public class ManagePostController {
 	 */
 	@DeleteMapping("/posts/{postId}")
 	public void deletePostById(@PathVariable("postId") String postId) {
+		managePostservice.deletePostById(postId);
 
 	}
 

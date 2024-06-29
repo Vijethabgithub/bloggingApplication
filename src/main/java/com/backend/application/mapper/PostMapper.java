@@ -12,33 +12,46 @@ import com.backend.application.entity.Post;
 public class PostMapper {
 
 	public Post convertDTOtoEntity(PostDTO postDTO) {
-    
+
 		Post post = new Post();
 		post.setAuthor(postDTO.getAuthor());
 		post.setBody(postDTO.getBody());
-		post.setTimestamp(postDTO.getTimestamp());
 		post.setTitle(postDTO.getTitle());
-		
+
 		return post;
-	
+
 	}
 
-	public List<PostDTO> convertEntitytoDTO(List<Post> posts) {
+	public List<PostDTO> convertEntityListtoDTO(List<Post> posts) {
 
 		List<PostDTO> dtos = new ArrayList<PostDTO>();
 
 		for (Post post : posts) {
 
 			PostDTO postDTO = new PostDTO();
+			postDTO.setId(post.getId());
 			postDTO.setAuthor(post.getAuthor());
 			postDTO.setBody(post.getBody());
-			postDTO.setTimestamp(post.getTimestamp());
 			postDTO.setTitle(post.getTitle());
-
+			postDTO.setTimestamp(post.getTimestamp());
 			dtos.add(postDTO);
 
 		}
 
 		return dtos;
 	}
+
+	public PostDTO convertEntitytoDTO(Post post) {
+
+		PostDTO postDTO = new PostDTO();
+		postDTO.setId(post.getId());
+		postDTO.setAuthor(post.getAuthor());
+		postDTO.setBody(post.getBody());
+		postDTO.setTitle(post.getTitle());
+		postDTO.setTimestamp(post.getTimestamp());
+
+		return postDTO;
+
+	}
+
 }

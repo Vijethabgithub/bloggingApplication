@@ -15,4 +15,8 @@ public interface ManagePostService {
 
 	void savePost(PostDTO postDTO);
 
+	void deletePostById(String postId);
+
+	PostDTO getPostById(String postId);
+
 }
