@@ -11,7 +11,7 @@ public class Post {
 	@Id
 	private String id;
 	
-	private String tittle;
+	private String title;
 	private String body;
 	private String author;
 	private Timestamp timestamp;
@@ -22,11 +22,11 @@ public class Post {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getBody() {
 		return body;

@@ -4,16 +4,16 @@ import java.sql.Timestamp;
 
 public class PostDTO {
 	
-	private String tittle;
+	private String title;
 	private String body;
 	private String author;
 	private Timestamp timestamp;
 	
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getBody() {
 		return body;
