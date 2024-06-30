@@ -4,11 +4,13 @@ import java.util.Date;
 
 public class PostDTO {
 
+
 	private String id;
 	private String title;
 	private String body;
 	private String author;
 	private Date timestamp;
+	
 	
 	public String getId() {
 		return id;
@@ -40,6 +42,7 @@ public class PostDTO {
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
+	
 	
 	
 }

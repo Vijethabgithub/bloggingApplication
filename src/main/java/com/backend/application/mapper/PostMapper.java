@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.backend.application.dto.CommentDTO;
 import com.backend.application.dto.PostDTO;
+import com.backend.application.entity.Comment;
 import com.backend.application.entity.Post;
 
 @Component
@@ -49,9 +51,33 @@ public class PostMapper {
 		postDTO.setBody(post.getBody());
 		postDTO.setTitle(post.getTitle());
 		postDTO.setTimestamp(post.getTimestamp());
-
 		return postDTO;
 
+	}
+
+	public Comment convertCommentDTOtoEntity(CommentDTO commentDTO) {
+		Comment comment = new Comment();
+		comment.setAuthor(commentDTO.getAuthor());
+		comment.setBody(commentDTO.getBody());
+		comment.setPostId(commentDTO.getPostId());
+
+		return comment;
+
+	}
+
+	public List<CommentDTO> convertCommentEntityToDTO(List<Comment> comments) {
+		List<CommentDTO> dtos = new ArrayList<CommentDTO>();
+		for (Comment comment : comments) {
+			CommentDTO commentDTO = new CommentDTO();
+			commentDTO.setAuthor(comment.getAuthor());
+			commentDTO.setBody(comment.getBody());
+			commentDTO.setId(comment.getId());
+			commentDTO.setPostId(comment.getPostId());
+			commentDTO.setTimestamp(comment.getTimestamp());
+			dtos.add(commentDTO);
+		}
+
+		return dtos;
 	}
 
 }
